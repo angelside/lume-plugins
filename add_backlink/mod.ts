@@ -40,21 +40,14 @@ export default function (options: Options) {
     const dataPromise = yaml(options.file);
 
     function addBackLink(url: string): Promise<Array<string>> {
-        const backlinkFromPreprocess = dataPromise.then(data => {
+        return dataPromise.then(data => {
             return data[url];
         });
-
-        return backlinkFromPreprocess;
     }
 
     return (site: Site) => {
         site.preprocess([".html"], async (page) => {
-            const backlinks = await addBackLink(page.data.url as string);
-
-            page.data.backlinkFromPreprocess = backlinks;
-
-            //console.log(page.data.backlinkFromPreprocess); // Array of backlinks
+            page.data.backlinkFromPreprocess = await addBackLink(page.data.url as string);
         });
     };
-
 }
