@@ -2,6 +2,8 @@
 /*
 import removeHtmlComments from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/remove_html_comments/mod.ts";
 
+// ...
+
 .use(removeHtmlComments())
 */
 export default function () {

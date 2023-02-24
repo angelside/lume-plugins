@@ -4,6 +4,8 @@ import yaml from "lume/core/loaders/yaml.ts";
 /*
 import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_backlink/mod.ts";
 
+// ...
+
 .use(addBackLink({
     file: "./src/_data/links.yml",
 }))
@@ -20,6 +22,7 @@ import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugin
 */
 
 // links.njk
+// {% include 'links.njk' %}
 /*
 {% if backlinkFromPreprocess | length -%}
     {% for link in backlinkFromPreprocess %}
