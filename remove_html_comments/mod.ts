@@ -1,5 +1,6 @@
+// _config.ts
 /*
-import removeHtmlComments from "./plugins/remove_html_comments.ts";
+import removeHtmlComments from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/remove_html_comments/mod.ts";
 
 .use(removeHtmlComments())
 */

@@ -2,6 +2,8 @@ import yaml from "lume/core/loaders/yaml.ts";
 
 // _config.ts
 /*
+import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_backlink/mod.ts";
+
 .use(addBackLink({
     file: "./src/_data/links.yml",
 }))
