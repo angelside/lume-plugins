@@ -7,8 +7,8 @@
 ## remove_html_comments
 > Deletes html comments on pages
 
+**_config.ts**
 ```typescript
-// _config.ts
 import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_backlink/mod.ts";
 
 // ...
@@ -21,8 +21,8 @@ import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugin
 ## add_backlink
 > Adds predefined links to predefined pages
 
+**_config.ts**
 ```typescript
-// _config.ts
 import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_backlink/mod.ts";
 
 // ...
@@ -30,19 +30,22 @@ import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugin
 .use(addBackLink({
     file: "./src/_data/links.yml",
 }))
+```
 
-
-// src/_data/links.yml
+**src/_data/links.yml**
+```yaml
 /page1/:
   - This is a test <a href="https://google.com">Link</a>
   - Hello world
 /page2/:
   - This is a test 2
   - Link test 2
+```
 
+**links.njk**
+`{% include 'links.njk' %}`
 
-// links.njk
-// {% include 'links.njk' %}
+```njk
 {% if backlinkFromPreprocess | length -%}
     {% for link in backlinkFromPreprocess %}
         <li class="text-xs">{{ link | safe }}</li>
