@@ -9,13 +9,11 @@
 
 **_config.ts**
 ```typescript
-import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_backlink/mod.ts";
+import removeHtmlComments from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/remove_html_comments/mod.ts";
 
 // ...
 
-.use(addBackLink({
-    file: "./src/_data/links.yml",
-}))
+.use(removeHtmlComments())
 ```
 
 ## add_backlink
