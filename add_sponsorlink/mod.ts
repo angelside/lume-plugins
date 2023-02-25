@@ -2,16 +2,16 @@ import yaml from "lume/core/loaders/yaml.ts";
 
 // _config.ts
 /*
-import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_backlink/mod.ts";
+import addSponsorLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_sponsorlink/mod.ts";
 
 // ...
 
-.use(addBackLink({
-    file: "./src/_data/links.yml",
+.use(addSponsorLink({
+    file: "./src/_data/sponsor_links.yml",
 }))
 */
 
-// src/_data/links.yml
+// src/_data/sponsor_links.yml
 /*
 /page1/:
   - This is a test <a href="https://google.com">Link</a>
@@ -21,11 +21,11 @@ import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugin
   - Link test 2
 */
 
-// links.njk
-// {% include 'links.njk' %}
+// sponsor_links.njk
+// {% include 'sponsor_links.njk' %}
 /*
-{% if backlinkFromPreprocess | length -%}
-    {% for link in backlinkFromPreprocess %}
+{% if sponsorslinkFromPreprocess | length -%}
+    {% for link in sponsorlinksFromPreprocess %}
         <li class="text-xs">{{ link | safe }}</li>
     {% endfor %}
 {%- endif %}
@@ -39,7 +39,7 @@ export default function (options: Options) {
 
     const dataPromise = yaml(options.file);
 
-    function addBackLink(url: string): Promise<Array<string>> {
+    function addSponsorLink(url: string): Promise<Array<string>> {
         return dataPromise.then(data => {
             return data[url];
         });
@@ -47,7 +47,7 @@ export default function (options: Options) {
 
     return (site: Site) => {
         site.preprocess([".html"], async (page) => {
-            page.data.backlinkFromPreprocess = await addBackLink(page.data.url as string);
+            page.data.sponsorlinksFromPreprocess = await addSponsorLink(page.data.url as string);
         });
     };
 }

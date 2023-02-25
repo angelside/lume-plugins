@@ -16,21 +16,21 @@ import removeHtmlComments from "https://raw.githubusercontent.com/angelside/lume
 .use(removeHtmlComments())
 ```
 
-## add_backlink
+## add_sponsorlink
 > Adds predefined links to predefined pages
 
 **_config.ts**
 ```typescript
-import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_backlink/mod.ts";
+import addSponsorLink from "https://raw.githubusercontent.com/angelside/lume-plugins/develop/add_sponsorlink/mod.ts";
 
 // ...
 
-.use(addBackLink({
-    file: "./src/_data/links.yml",
+.use(addSponsorLink({
+    file: "./src/_data/sponsor_links.yml",
 }))
 ```
 
-**src/_data/links.yml**
+**src/_data/sponsor_links.yml**
 ```yaml
 /page1/:
   - This is a test <a href="https://google.com">Link</a>
@@ -40,12 +40,12 @@ import addBackLink from "https://raw.githubusercontent.com/angelside/lume-plugin
   - Link test 2
 ```
 
-**links.njk**
-`{% include 'links.njk' %}`
+**sponsor_links.njk**
+`{% include 'sponsor_links.njk' %}`
 
 ```njk
-{% if backlinkFromPreprocess | length -%}
-    {% for link in backlinkFromPreprocess %}
+{% if sponsorlinksFromPreprocess | length -%}
+    {% for link in sponsorlinksFromPreprocess %}
         <li class="text-xs">{{ link | safe }}</li>
     {% endfor %}
 {%- endif %}
